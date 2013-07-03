@@ -1,0 +1,279 @@
+<html>
+<head>
+<title>Logos Mode - Trash it!!!</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="assets/css/style.css" rel="stylesheet" type="text/css">
+<!-- Add jQuery library -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="assets/css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="assets/js/jquery.fancybox.pack.js?v=2.1.5"></script>
+<script type="text/javascript" src="assets/js/jquery.countdown.js" ></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".fancybox").fancybox();
+	});
+function close_window() {
+  if (confirm("The choice is in your hands. To quit the game or to not!!!")) {
+    close();
+  }
+}
+
+        window.jQuery(function ($) {
+            "use strict";
+
+            $('time').countDown({
+                with_separators: false
+            });
+            $('.alt-1').countDown({
+                css_class: 'countdown-alt-1'
+            });
+            $('.alt-2').countDown({
+                css_class: 'countdown-alt-2'
+            });
+
+        });
+
+</script>
+<audio autoplay>
+  <source src="assets/audio/game_songs/logos.wav" type="audio/mpeg">
+</audio>
+<audio id = 'clicksound'>
+  <source src="assets/audio/effects.wav" type="audio/mpeg">
+</audio>
+</head>
+<body>
+<div id="floating_clock">
+  <div style=" margin-top:-50;">
+    <h1 class="alt-1">0h 0m 46s</h1>
+  </div>
+</div>
+<div id="container">
+  <div id="layout-01"></div>
+  <div id="layout-02"></div>
+  <div id="layout-03"></div>
+  <div id="layout-04"></div>
+  <div id="layout-05_normal">
+    <div id="container_game">
+      <canvas id="myCanvas" width="837" height="450" style="margin-left:23; margin-top:62;"></canvas>
+    </div>
+  </div>
+  <div id="layout-06"></div>
+  <div id="layout-07"></div>
+  <div id="layout-08"></div>
+  <div id="layout-09"></div>
+  <div id="layout-10"><a class="fancybox" href="#back"><img src="assets/images/spacer.gif" width="68" height="79" alt="" border="0"></a></div>
+  <div id="layout-11"><a class="fancybox" href="#about"><img src="assets/images/spacer.gif" width="72" height="79" alt="" border="0"></a></div>
+  <div id="layout-12"><a class="fancybox" href="#quit"><img src="assets/images/spacer.gif" width="67" height="79" alt="" border="0"></a></div>
+  <div id="layout-13"></div>
+  <div id="layout-14"></div>
+  <div id="layout-15"></div>
+  <div id="layout-16"></div>
+  <div id="layout-17"></div>
+  <div id="layout-18"></div>
+  <div id="layout-19"></div>
+  <div id="layout-20"></div>
+  <div id="layout-21"></div>
+  <div id="layout-22"></div>
+  <div id="layout-23"></div>
+  <div id="layout-24"></div>
+  <div id="layout-25"></div>
+</div>
+<div id="back" style="width:400px;display: none;">
+  <h3>Back</h3>
+  <p> Where to? </p>
+  <p style="text-align:center;"> <a href="index.html">Main Menu</a> </p>
+</div>
+<div id="about" style="width:400px;display: none;">
+  <h3>Replay</h3>
+  <p> Oh so you want to replay now, huh? </p>
+  <p> Click that link below bro! </p>
+  <p style="text-align:center;"> <a href="logos.html">Replay</a>  </p>
+</div>
+<div id="quit" style="width:400px;display: none;">
+  <h3>Quit</h3>
+  <p> Are you sure you want to quit? If so, please click the link below and confirm</p>
+  <p style="text-align:center;"> <a href="JavaScript:window.close()">Confirm</a> </p>
+</div>
+<script>
+            
+            
+            var imgBomb = new Image();
+            imgBomb.src = 'assets/images/game_levels/logos/image_4.png';
+            
+            var imgEnd = new Image();
+            imgEnd.src = 'assets/images/End.png';
+            var framerate = 2000;
+            var score = 0;
+            var canvas = document.getElementById('myCanvas');
+            var context = canvas.getContext('2d');
+            var imgBG = new Image();
+            var imgMole = new Image();
+            var imgChrome = new Image();
+            imgChrome.src = 'assets/images/game_levels/logos/image_1.png';
+            var imgCB = new Image();
+            imgCB.src = 'assets/images/game_levels/logos/image_2.png';
+            imgBG.onload = function() {
+                context.drawImage(imgBG, 0, 0);
+
+            };
+            imgBG.src = 'assets/images/spacer.gif';
+            imgMole.src = 'assets/images/game_levels/logos/image_3.png';
+            
+            canvas.addEventListener('mousedown', click);
+            
+            function Update() {
+                //generates random coordinates and time
+                this.randomx = Math.random()*600 ;
+                this.randomy = 70 + Math.random()*350 ;
+                this.randomtime = Math.random*5000 ;
+                var info = [1, this.randomx, this.randomy] ;
+                return info ;
+            }
+            
+            
+            function UpdateNeg() {
+                //generates random coordinates and time
+                this.randomx = Math.random()*600 ;
+                this.randomy = 70 + Math.random()*350 ;
+                this.randomtime = Math.random*5000 ;
+                var info = [-1, this.randomx, this.randomy] ;
+                return info ;
+            }
+            
+            
+            function Updateinfo() {
+                //window.alert('hello');
+                for (var i = 0; i < 3; i++) {
+                    coordinates[i] = Update();
+                    
+                }
+                coordinates[3] = UpdateNeg();
+            }
+            
+            var xcoor = 0;
+            var ycoor = 0;
+            var x1coor = 0;
+            var y1coor = 0;  
+            var x2coor = 0;
+            var y2coor = 0;
+            
+            
+            var coordinates = new Array();
+            coordinates = [[0,0,0],[0,0,0],[0,0,0],[0,0,0]];
+            
+            /*function loop() {
+                //game loop that creates an image and clears it
+                var updateddata = Update();
+                draw(updateddata);
+                xcoor = updateddata[0];
+                ycoor = updateddata[1];    
+            
+            }*/
+            var tick = 0
+            var time = 20
+            function loop() {
+                tick ++;
+                console.log(tick);
+                if (tick % time == 0) {
+                    Updateinfo();
+                    console.log(coordinates[3]);
+                    drawall();
+                }
+                time = 20 - Math.floor(score/4);
+                if (tick >= 500) {
+                    clearInterval(run);
+                    context.drawImage(imgEnd, 0,0,837,450);
+                    context.fillStyle = 'white';
+                    context.font="30px Verdana";
+                    context.fillText( 'Your score is ' + score + '!', 300, 300);
+                }
+            }
+           
+		   
+            function drawall() {
+                context.clearRect(0,0,837,450)
+                context.drawImage(imgBG, 0,0,837,450);
+                var Temp1 = coordinates[0];
+                var Temp2 = coordinates[1];
+                var Temp3 = coordinates[2];
+                var Temp4 = coordinates[3];
+                
+                if (Temp1[0] == 1) {
+                    context.drawImage(imgMole, Temp1[1], Temp1[2], 88,146 );
+					//context.drawImage(imgMole,20,320,0,360,Temp1[1], Temp1[2], 100, 100);
+                
+                }
+                
+                if (Temp2[0] == 1) {
+                    context.drawImage(imgChrome, Temp2[1], Temp2[2], 100, 100);
+                }
+                
+                if (Temp3[0] == 1) {
+                    context.drawImage(imgCB, Temp3[1], Temp3[2], 100, 100);
+                }
+                
+                if (Temp4[0] == -1) {
+                    //context.drawImage(imgBomb, Temp4[1], Temp4[2], 50,100);
+					context.drawImage(imgBomb,Temp4[1], Temp4[2], 100, 100);
+					
+					//context.drawImage(imgMole,20,320,0,360,Temp1[1], Temp1[2], 100, 100);
+                    console.log(Temp4);
+                }
+                
+                
+            }
+            var fail = false
+            function click(e) {
+                for (var i=0; i < 4; i++) {
+                    var temp1 = coordinates[i];
+                    console.log(temp1);
+                    if (temp1[0] == 1 && e.offsetX >= temp1[1] && e.offsetX <= temp1[1] + 100 && e.offsetY >= temp1[2] && e.offsetY <= temp1[2] + 100) {
+                        temp1[0] = 0;
+                        coordinates[i] = temp1;
+                        score++;
+                        console.log(score);
+                    
+                    }
+                    if (temp1[0] == -1 && e.offsetX >= temp1[1] && e.offsetX <= temp1[1] + 100 && e.offsetY >= temp1[2] && e.offsetY <= temp1[2] + 100) {
+                        console.log('it works');
+                        temp1[0] = 0;
+                        coordinates[i] = temp1;
+                        score = score - 1;    
+                    }
+                
+                
+                
+                    //console.log('it works');
+                }
+                    
+                    
+            
+                document.getElementById('clicksound').play();
+                context.clearRect(0,0,837,450)
+                context.drawImage(imgBG, 0,0,837,450);
+                drawall();
+                context.fillStyle = 'white';
+                context.font="30px Verdana" ;
+                context.fillText( 'Score:' + score, 45, 45);
+            
+            
+            }
+            
+            
+            
+            function draw(Temp) {
+                //takes coordinates and draws image there
+                var x = Temp[1];
+                var y = Temp[2];
+                
+                context.drawImage(imgBG, 0, 0, 837, 450) ;
+                context.drawImage(imgMole, x, y) ;
+                
+            }
+            
+            var run = setInterval(loop, 90);
+            
+        </script>
+</body>
+</html>

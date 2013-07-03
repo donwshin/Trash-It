@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>Main Menu - Trash it!!!</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="assets/css/style.css" rel="stylesheet" type="text/css">
+<!-- Add jQuery library -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- Add fancyBox -->
+<link rel="stylesheet" href="assets/css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="assets/js/jquery.fancybox.pack.js?v=2.1.5"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".fancybox").fancybox();
+	});
+		$(".various").fancybox({
+		maxWidth	: 850,
+		maxHeight	: 700,
+		fitToView	: false,
+		width		: '70%',
+		height		: '500',
+		autoSize	: false,
+		closeClick	: false,
+		openEffect	: 'none',
+		closeEffect	: 'none'
+	});
+function close_window() {
+  if (confirm("The choice is in your hands. To quit the game or to not!!!")) {
+    close();
+  }
+}
+</script>
+<audio autoplay>
+  <source src="assets/audio/test.mp3" type="audio/mpeg">
+</audio>
+</head>
+<body>
+<div id="container">
+  <div id="layout-01"></div>
+  <div id="layout-02"></div>
+  <div id="layout-03"></div>
+  <div id="layout-04"></div>
+  <div id="layout-05">
+    <div id="container_buttons">
+      <div id="buttons-01"><a class="various" data-fancybox-type="iframe" href="with-carousel.html"><img src="assets/images/spacer.gif" width="246" height="104" alt="" border="0"></a></div>
+    </div>
+  </div>
+  <div id="layout-06"></div>
+  <div id="layout-07"></div>
+  <div id="layout-08"></div>
+  <div id="layout-09"></div>
+  <div id="layout-10"><a class="fancybox" href="#back"><img src="assets/images/spacer.gif" width="68" height="79" alt="" border="0"></a></div>
+  <div id="layout-11"><a class="fancybox" href="#about"><img src="assets/images/spacer.gif" width="72" height="79" alt="" border="0"></a></div>
+  <div id="layout-12"><a class="fancybox" href="#quit"><img src="assets/images/spacer.gif" width="67" height="79" alt="" border="0"></a></div>
+  <div id="layout-13"></div>
+  <div id="layout-14"></div>
+  <div id="layout-15"></div>
+  <div id="layout-16"></div>
+  <div id="layout-17"></div>
+  <div id="layout-18"></div>
+  <div id="layout-19"></div>
+  <div id="layout-20"></div>
+  <div id="layout-21"></div>
+  <div id="layout-22"></div>
+  <div id="layout-23"></div>
+  <div id="layout-24"></div>
+  <div id="layout-25"></div>
+</div>
+<div id="back" style="width:400px;display: none;">
+  <h3>Back</h3>
+  <p> Where to? </p>
+  <p> Swerve bro, swerve... </p>
+  <p> There is no where to go! This is the main menu bro!</p>
+  <p> So click that circular "x" on the top right side of this white box!!! </p>
+  <p style="text-align:center;"> You've been warned. </p>
+</div>
+<div id="about" style="width:400px;display: none;">
+  <h3>About</h3>
+  <p>Created By: <br>
+	 Daniel Slobodyanyuk <br>
+	 Paul Zakhary <br>
+	 Don-Wok Shin <br>
+	 Skhandesh Srinivasan <br>
+	 Chris Capron <br>
+	 Allonte Hooper <br>
+	 <br>
+	 "Trash It" is a game that teaches people of which items can and cannot be recycled.<br>
+	 Clicking on recyclable items earns you points, while clicking on the battery takes points away. <br>
+	 Race against time to save the UNIVERSE!<br>
+</div>
+<div id="quit" style="width:400px;display: none;">
+  <h3>Quit</h3>
+  <p> Are you sure you want to quit? If so, please click the link below and confirm</p>
+  <p style="text-align:center;"> <a href="javascript:close_window();">Confirm</a> </p>
+</div>
+<div id="gamemode" style="width:900px;height:500px;display: none;">
+  <h3>Game Mode</h3>
+  <p> So you want to play custom mode huh? </p>
+  <p> Well then go and pick one version on the left side carousel. </p>
+  <p> Then click Play Now on the bigger image! </p>
+
+
+</div>
+</body>
+</html>
